@@ -1,0 +1,37 @@
+[build-system]
+requires = ["setuptools>=61.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "photon-crawler"
+version = "1.3.2"
+description = "A fast and flexible web crawler and information gathering tool"
+authors = [{ name = "Your Name", email = "your.email@example.com" }]
+license = { file = "LICENSE" }
+readme = "README.md"
+requires-python = ">=3.7"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+]
+dependencies = [
+    "requests",
+    "requests[socks]",
+    "urllib3",
+    "tld",
+]
+
+[project.scripts]
+photon = "photon.photon:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+include = ["photon*"]
+namespaces = false
+
+[tool.setuptools.package-data]
+"photon" = ["*.txt"]
+
+[tool.setuptools]
+include-package-data = true
